@@ -446,7 +446,9 @@ echo "Prometheus Chart Name:"$prometheus_chart_name
 echo "prometheus_chart_name:"$prometheus_chart_name>> record.txt
 
 #create eks cluster
-launch_eks_cluster
+if [ $useexisting == "n" ]; then
+	launch_eks_cluster
+fi
 
 #create EMR cluster
 launch_emr_cluster
