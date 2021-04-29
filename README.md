@@ -1,5 +1,6 @@
 # emr-on-eks-automation
-automatically create EKS, EMR and Aamzon Managed Prometheus
+
+automatically create or using existing EKS, EMR on eks and Aamzon Managed Prometheus
 
 
 # prerequesite
