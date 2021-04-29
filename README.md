@@ -48,7 +48,7 @@ Permission needed to create EKS cluster:
 https://eksctl.io/usage/minimum-iam-policies/
 
 Permission needed to create EMR on EKS:
-
+```
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -70,6 +70,6 @@ Permission needed to create EMR on EKS:
         }
     ]
 }
-
+```
 Permission for AMP:
 
