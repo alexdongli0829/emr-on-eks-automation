@@ -4,7 +4,7 @@ automatically create EKS, EMR and Aamzon Managed Prometheus
 
 # prerequesite
 
-1. package needed: kubectl, eksctl, helm, awscli v2, jq
+## package needed: kubectl, eksctl, helm, awscli v2, jq
 
 Install on AL2:
 
@@ -42,12 +42,12 @@ bash get_helm.sh
 sudo yum install -y jq
 ```
 
-2. Need miminum IAM permission
+## Need miminum IAM permission
 
-Permission needed to create EKS cluster:
+### Permission needed to create EKS cluster:
 https://eksctl.io/usage/minimum-iam-policies/
 
-Permission needed to create EMR on EKS:
+### Permission needed to create EMR on EKS:
 ```
 {
     "Version": "2012-10-17",
@@ -71,5 +71,46 @@ Permission needed to create EMR on EKS:
     ]
 }
 ```
-Permission for AMP:
+
+### Permission for AMP:
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "iam",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreatePolicy",
+                "iam:GetRole",
+                "iam:UpdateAssumeRolePolicy",
+                "iam:CreateRole",
+                "iam:AttachRolePolicy"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "sts",
+            "Effect": "Allow",
+            "Action": "sts:GetCallerIdentity",
+            "Resource": "*"
+        },
+        {
+            "Sid": "eks",
+            "Effect": "Allow",
+            "Action": "eks:DescribeCluster",
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "aps:CreateWorkspace",
+                "aps:DescribeWorkspace"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
