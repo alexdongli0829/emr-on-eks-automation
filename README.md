@@ -6,7 +6,7 @@ automatically create EKS, EMR and Aamzon Managed Prometheus
 
 ## package needed: kubectl, eksctl, helm, awscli v2, jq
 
-Install on AL2:
+Install on AL2(refer pre_install.sh):
 
 ```
 #kubectl
